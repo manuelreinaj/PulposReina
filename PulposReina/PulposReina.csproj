@@ -6,4 +6,23 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="resources\img\art.png" />
+    <None Remove="resources\img\rep.png" />
+    <None Remove="resources\img\users.png" />
+    <None Remove="resources\img\van.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="MySql.Data" Version="8.0.25" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\img\art.png" />
+    <Resource Include="resources\img\rep.png" />
+    <Resource Include="resources\img\users.png" />
+    <Resource Include="resources\img\van.png" />
+  </ItemGroup>
+
 </Project>
