@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PulposReina"
         mc:Ignorable="d"
         Title="Pulpos Reina" Height="516" Width="800">
-    <Grid Margin="0,0,0,-33">
+    <Grid Name="mainGrid" Margin="0,0,0,-33" >
         <Button x:Name="clientesButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="125" Width="265" Click="Clientes_Click" FontSize="35" Background="White">
             <DockPanel>
                 <Image Source="resources/img/users.png" Width="50" Margin="0, 0, 20, 0"/>
@@ -39,7 +39,6 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <TextBox x:Name="textprueba" HorizontalAlignment="Left" Margin="378,134,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Height="116"/>
 
     </Grid>
 </Window>

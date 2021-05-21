@@ -30,36 +30,22 @@ namespace PulposReina
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            this.Close();
-            
+            mainGrid.Children.Clear();
+
+            Clientes cli = new Clientes(conn);
+
+            mainGrid.Children.Add(cli);
+
         }
 
         private void Clientes_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         public void MuestraClientes()
         {
-            using (var resul = new MySqlCommand("SELECT * FROM clientes", conn))
-            {
-                using (var reader = resul.ExecuteReader())
-                {
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            textprueba.Text += reader.GetString(1);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("No rows found.");
-                    }
-                    reader.Close();
-                }
-            }
+       
         }
 
         MySqlConnection conn;

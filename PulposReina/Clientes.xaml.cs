@@ -11,17 +11,36 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
+using MySql.Data.MySqlClient;
+using PulposReina.Models;
+using System.Linq;
+using System.Diagnostics;
+
 
 namespace PulposReina
 {
     /// <summary>
     /// Lógica de interacción para Clientes.xaml
     /// </summary>
-    public partial class Clientes : Window
+    public partial class Clientes : UserControl
     {
-        public Clientes()
+        public Clientes(MySqlConnection conn)
         {
             InitializeComponent();
+
+            this.conn = conn;
+
+            cargarDatos();
+
         }
+
+        private void cargarDatos()
+        {
+            var db = new pulposreinaContext();
+            DataClientes.ItemsSource = db.Clientes.ToList();
+        }
+
+        MySqlConnection conn;
     }
 }
