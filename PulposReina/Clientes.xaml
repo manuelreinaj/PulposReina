@@ -6,15 +6,64 @@
         xmlns:local="clr-namespace:PulposReina"
         mc:Ignorable="d"
         Height="516" Width="800">
-    <Grid>
-        <DataGrid x:Name="DataClientes" Margin="92,88,92,88"  AutoGenerateColumns="False" >
+    <Grid x:Name="mainGrid">
+        <DataGrid x:Name="DataClientes" Margin="31,40,262,81"  AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="DataClientes_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id"  Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="" Binding="{Binding Nombre}" />
                 <DataGridHyperlinkColumn Header="Email" Binding="{Binding Correo}" />
-                <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" />
+                <DataGridTextColumn Header="Tlf" Binding="{Binding Telefono}" />
+                <DataGridTextColumn Header="Contacto" Binding="{Binding Contacto}" />
                 <DataGridTextColumn Header="Rappel" Binding="{Binding Rappel}" />
+                <DataGridTextColumn Header="Comercial" Binding="{Binding User.Nombre }" />
             </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Clasificacion}" Value="1">
+                            <Setter Property="Background" Value="#ffff80"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Clasificacion}" Value="0">
+                            <Setter Property="Background" Value="#aaff80"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Clasificacion}" Value="2">
+                            <Setter Property="Background" Value="#ff8080"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Clasificacion}" Value="3">
+                            <Setter Property="Background" Value="#66b3ff"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
+        <Rectangle x:Name="rectanguloEdit" HorizontalAlignment="Left" Height="370" Margin="566,65,0,0" Stroke="Black" VerticalAlignment="Top" Width="208" Fill="#FFF0F0F0"/>
+        <Label HorizontalAlignment="Left" Margin="566,19,0,0" VerticalAlignment="Top" Width="60" FontSize="16">
+            <Label Content="Editar"/>
+        </Label>
+        <Label x:Name="labelEmpresa" HorizontalAlignment="Left" Margin="626,19,0,0" VerticalAlignment="Top" Width="104" FontSize="16">
+            <Label Content=""/>
+        </Label>
+        <TextBox x:Name="NombreBox" HorizontalAlignment="Left" Margin="580,96,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"/>
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="580,145,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"/>
+        <TextBox x:Name="TelefonoBox" HorizontalAlignment="Left" Margin="580,194,0,0" Text=""  TextWrapping="Wrap" VerticalAlignment="Top" Width="174"/>
+        <TextBox x:Name="ContactoBox" HorizontalAlignment="Left" Margin="580,243,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"/>
+        <ComboBox x:Name="DataComerciales" HorizontalAlignment="Left" Margin="580,341,0,0" VerticalAlignment="Top" Width="174" IsEditable="False"/>
+        <Button x:Name="GuardarButton" Content="Crear" HorizontalAlignment="Left" Margin="580,379,0,0" VerticalAlignment="Top" Height="26" Width="120" Click="Button_Guardar"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="580,65,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="580,119,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Telefono" HorizontalAlignment="Left" Margin="580,168,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Contacto" HorizontalAlignment="Left" Margin="580,217,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Comercial" HorizontalAlignment="Left" Margin="580,315,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="RappelBox" HorizontalAlignment="Left" Margin="580,292,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="174"/>
+        <Label Content="Rappel" HorizontalAlignment="Left" Margin="580,266,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="724,379,0,0" VerticalAlignment="Top" Height="26" Width="30" Click="NuevoCliente">
+            <Button.Background>
+                <ImageBrush ImageSource="/newuser.png"/>
+            </Button.Background>
+        </Button>
+        <Button Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="31,440,0,0" VerticalAlignment="Top" Height="31" Width="48" Click="Button_Back">
+            <Button.Background>
+                <ImageBrush ImageSource="/flechaizquierda.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </UserControl>

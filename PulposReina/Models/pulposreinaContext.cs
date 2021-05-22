@@ -38,6 +38,8 @@ namespace PulposReina.Models
             {
                 entity.ToTable("clientes");
 
+                entity.HasIndex(e => e.Userid, "CLIENTES_FK_USUARIOS");
+
                 entity.Property(e => e.Id)
                     .HasColumnType("int(11)")
                     .HasColumnName("id");
@@ -47,7 +49,6 @@ namespace PulposReina.Models
                     .HasColumnName("clasificacion");
 
                 entity.Property(e => e.Contacto)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .HasColumnName("contacto");
 
@@ -66,6 +67,16 @@ namespace PulposReina.Models
                 entity.Property(e => e.Telefono)
                     .HasColumnType("int(9)")
                     .HasColumnName("telefono");
+
+                entity.Property(e => e.Userid)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("userid");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Clientes)
+                    .HasForeignKey(d => d.Userid)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("CLIENTES_FK_USUARIOS");
             });
 
             modelBuilder.Entity<Usuario>(entity =>

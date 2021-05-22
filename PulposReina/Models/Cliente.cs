@@ -14,5 +14,8 @@ namespace PulposReina.Models
         public string Contacto { get; set; }
         public float Rappel { get; set; }
         public int Clasificacion { get; set; }
+        public int Userid { get; set; }
+
+        public virtual Usuario User { get; set; }
     }
 }

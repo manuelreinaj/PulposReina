@@ -5,40 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PulposReina"
         mc:Ignorable="d"
-        Title="Pulpos Reina" Height="516" Width="800">
-    <Grid Name="mainGrid" Margin="0,0,0,-33" >
-        <Button x:Name="clientesButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="125" Width="265" Click="Clientes_Click" FontSize="35" Background="White">
-            <DockPanel>
-                <Image Source="resources/img/users.png" Width="50" Margin="0, 0, 20, 0"/>
-                <TextBlock>
-                    Clientes
-                </TextBlock>
-            </DockPanel>
-        </Button>
-        <Button x:Name="pedidosButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="125" Width="265" Click="Button_Click" FontSize="22" Margin="0,125,0,0" Background="White">
-            <DockPanel>
-                <Image Source="resources/img/van.png" Width="70" Margin="0, 0, 8, 0"/>
-                <TextBlock TextAlignment="Center" Padding="0, 17, 0, 0">
-                    Pedidos/Ofertas
-                </TextBlock>
-            </DockPanel>
-        </Button>
-        <Button x:Name="articulosButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="125" Width="265" Click="Button_Click" FontSize="35" Margin="0,250,0,0" Background="White">
-            <DockPanel>
-                <Image Source="resources/img/art.png" Width="50" Margin="0, 0, 20, 0"/>
-                <TextBlock>
-                    Articulos
-                </TextBlock>
-            </DockPanel>
-        </Button>
-        <Button x:Name="agendasButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="125" Width="265" Click="Button_Click" FontSize="35" Margin="0,375,0,0" Background="White">
-            <DockPanel>
-                <Image Source="resources/img/rep.png" Width="50" Margin="0, 0, 20, 0"/>
-                <TextBlock>
-                    Agendas
-                </TextBlock>
-            </DockPanel>
-        </Button>
+        Title="Pulpos Reina" Height="560" Width="800">
+    <Grid Name="mainGrid" >
 
     </Grid>
 </Window>

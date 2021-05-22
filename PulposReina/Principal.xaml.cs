@@ -12,36 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
 
 namespace PulposReina
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Lógica de interacción para Principal.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Principal : UserControl
     {
-        public MainWindow()
+        public Principal()
         {
             InitializeComponent();
-            AbrirPrincipal();
-            MuestraClientes();
         }
 
-        public void MuestraClientes()
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
-        
+
         }
 
-        public void AbrirPrincipal()
+        public void Clientes_Click(object sender, RoutedEventArgs e)
         {
             mainGrid.Children.Clear();
 
-            Principal prin = new Principal();
+            Clientes cli = new Clientes();
 
-            mainGrid.Children.Add(prin);
+            mainGrid.Children.Add(cli);
         }
-
-        public Grid gridPrin;
     }
 }

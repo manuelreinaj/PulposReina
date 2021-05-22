@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="flechaizquierda.png" />
+    <None Remove="newuser.png" />
     <None Remove="resources\img\art.png" />
+    <None Remove="resources\img\flechaizquierda.png" />
+    <None Remove="resources\img\newuser.png" />
     <None Remove="resources\img\rep.png" />
     <None Remove="resources\img\users.png" />
     <None Remove="resources\img\van.png" />
@@ -25,7 +29,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="flechaizquierda.png" />
+    <Resource Include="newuser.png" />
     <Resource Include="resources\img\art.png" />
+    <Resource Include="resources\img\flechaizquierda.png" />
+    <Resource Include="resources\img\newuser.png" />
     <Resource Include="resources\img\rep.png" />
     <Resource Include="resources\img\users.png" />
     <Resource Include="resources\img\van.png" />
