@@ -12,37 +12,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
+using PulposReina.Models;
+using System.Linq;
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace PulposReina
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Lógica de interacción para Articulos.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Articulos : UserControl
     {
-        public MainWindow()
+        public Articulos()
         {
             InitializeComponent();
-            AbrirLogin();
-            MuestraResumen();
+            CargarDatos();
         }
 
-        public void MuestraResumen()
-        {
-        
-        }
-
-        public void AbrirLogin()
+        private void Button_Back(object sender, RoutedEventArgs e)
         {
             mainGrid.Children.Clear();
 
-            Login prin = new Login();
+            Principal prin = new Principal();
 
             mainGrid.Children.Add(prin);
         }
 
+        private void CargarDatos()
+        {
+            var db = new pulposreinaContext();
+            var listadoArticulos = db.Articulos.ToList();
 
-        public Grid gridPrin;
+            DataArticulos.ItemsSource = listadoArticulos;
+        }
     }
 }
