@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="correo.jpg" />
     <None Remove="flechaizquierda.png" />
     <None Remove="newuser.png" />
+    <None Remove="pulpo1.png" />
     <None Remove="resources\img\art.png" />
+    <None Remove="resources\img\correo.jpg" />
     <None Remove="resources\img\flechaizquierda.png" />
     <None Remove="resources\img\newuser.png" />
+    <None Remove="resources\img\pulpo1.png" />
     <None Remove="resources\img\rep.png" />
     <None Remove="resources\img\users.png" />
     <None Remove="resources\img\van.png" />
@@ -26,14 +30,19 @@
 	  <PrivateAssets>all</PrivateAssets>
 	</PackageReference>
 	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.1" />
+	<PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="correo.jpg" />
     <Resource Include="flechaizquierda.png" />
     <Resource Include="newuser.png" />
+    <Resource Include="pulpo1.png" />
     <Resource Include="resources\img\art.png" />
+    <Resource Include="resources\img\correo.jpg" />
     <Resource Include="resources\img\flechaizquierda.png" />
     <Resource Include="resources\img\newuser.png" />
+    <Resource Include="resources\img\pulpo1.png" />
     <Resource Include="resources\img\rep.png" />
     <Resource Include="resources\img\users.png" />
     <Resource Include="resources\img\van.png" />

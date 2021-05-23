@@ -85,6 +85,8 @@ namespace PulposReina
             var contacto = ContactoBox.Text;
             var rappel = RappelBox.Text;
             var user = ((ComboBoxItem)DataComerciales.SelectedItem).Tag.ToString();
+            
+            //Aqui deberian ir las comprobaciones
 
             if (updater < 0)
             {
@@ -102,9 +104,15 @@ namespace PulposReina
 
                 cliente.Nombre = nombre;
                 cliente.Contacto = contacto;
+                cliente.Correo = email;
+                cliente.Telefono = int.Parse(telefono);
+                cliente.Rappel = float.Parse(rappel);
+                cliente.Userid = int.Parse(user);
                 db.SaveChanges();
+                updater = -1;
                 actualizando = 1;
             }
+            GuardarButton.Content = "Crear";
             VaciarForm();
             CargarDatos();
         }

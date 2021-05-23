@@ -7,6 +7,11 @@ namespace PulposReina.Models
 {
     public partial class Cliente
     {
+        public Cliente()
+        {
+            Pedidos = new HashSet<Pedido>();
+        }
+
         public int Id { get; set; }
         public string Nombre { get; set; }
         public int Telefono { get; set; }
@@ -17,5 +22,6 @@ namespace PulposReina.Models
         public int Userid { get; set; }
 
         public virtual Usuario User { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
     }
 }

@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:PulposReina"
         mc:Ignorable="d"
         Title="Pulpos Reina" Height="560" Width="800">
+        
+    
     <Grid Name="mainGrid" >
 
     </Grid>

@@ -62,7 +62,7 @@
         </Button>
         <Button Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="31,440,0,0" VerticalAlignment="Top" Height="31" Width="48" Click="Button_Back">
             <Button.Background>
-                <ImageBrush ImageSource="/flechaizquierda.png"/>
+                <ImageBrush ImageSource="/resources/img/flechaizquierda.png"/>
             </Button.Background>
         </Button>
     </Grid>

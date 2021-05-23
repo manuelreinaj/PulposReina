@@ -17,7 +17,9 @@ namespace PulposReina.Models
         {
         }
 
+        public virtual DbSet<Articulo> Articulos { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<Pedido> Pedidos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,6 +35,24 @@ namespace PulposReina.Models
         {
             modelBuilder.HasCharSet("utf8mb4")
                 .UseCollation("utf8mb4_general_ci");
+
+            modelBuilder.Entity<Articulo>(entity =>
+            {
+                entity.ToTable("articulos");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("id");
+
+                entity.Property(e => e.Mascara)
+                    .IsRequired()
+                    .HasMaxLength(10);
+
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .HasColumnName("nombre");
+            });
 
             modelBuilder.Entity<Cliente>(entity =>
             {
@@ -77,6 +97,52 @@ namespace PulposReina.Models
                     .HasForeignKey(d => d.Userid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("CLIENTES_FK_USUARIOS");
+            });
+
+            modelBuilder.Entity<Pedido>(entity =>
+            {
+                entity.ToTable("pedidos");
+
+                entity.HasIndex(e => e.Articuloid, "PEDIDOS_FK_ARTICULOS");
+
+                entity.HasIndex(e => e.Clienteid, "PEDIDOS_FK_CLIENTES");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("id");
+
+                entity.Property(e => e.Articuloid)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("articuloid")
+                    .HasDefaultValueSql("'1'");
+
+                entity.Property(e => e.Clienteid)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("clienteid");
+
+                entity.Property(e => e.Fecha)
+                    .HasColumnType("date")
+                    .HasColumnName("fecha");
+
+                entity.Property(e => e.Oferta)
+                    .HasColumnType("int(1)")
+                    .HasColumnName("oferta");
+
+                entity.Property(e => e.Precio).HasColumnName("precio");
+
+                entity.Property(e => e.Unidades)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("unidades");
+
+                entity.HasOne(d => d.Articulo)
+                    .WithMany(p => p.Pedidos)
+                    .HasForeignKey(d => d.Articuloid)
+                    .HasConstraintName("PEDIDOS_FK_ARTICULOS");
+
+                entity.HasOne(d => d.Cliente)
+                    .WithMany(p => p.Pedidos)
+                    .HasForeignKey(d => d.Clienteid)
+                    .HasConstraintName("PEDIDOS_FK_CLIENTES");
             });
 
             modelBuilder.Entity<Usuario>(entity =>

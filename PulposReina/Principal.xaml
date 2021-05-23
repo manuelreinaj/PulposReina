@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Name="mainGrid" >
-        <Button x:Name="clientesButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="130" Width="265" Click="Clientes_Click" FontSize="35" Background="White">
+        <Button x:Name="clientesButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="65" Width="265" Click="Clientes_Click" FontSize="35" Background="White">
             <DockPanel>
                 <Image Source="resources/img/users.png" Width="50" Margin="0, 0, 20, 0"/>
                 <TextBlock>
@@ -15,7 +15,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button x:Name="pedidosButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="130" Width="265" Click="Button_Click" FontSize="22" Margin="0,130,0,0" Background="White">
+        <Button x:Name="pedidosButton" HorizontalAlignment="Center" VerticalAlignment="Top" Height="65" Width="270" Click="Pedidos_Click" FontSize="22" Background="White">
             <DockPanel>
                 <Image Source="resources/img/van.png" Width="70" Margin="0, 0, 8, 0"/>
                 <TextBlock TextAlignment="Center" Padding="0, 17, 0, 0">
@@ -23,7 +23,7 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button x:Name="articulosButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="130" Width="265" Click="Button_Click" FontSize="35" Margin="0,260,0,0" Background="White">
+        <Button x:Name="articulosButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="65" Width="265" FontSize="35" Margin="535,0,0,0" Background="White" Click="Articulos_Click">
             <DockPanel>
                 <Image Source="resources/img/art.png" Width="50" Margin="0, 0, 20, 0"/>
                 <TextBlock>
@@ -31,14 +31,17 @@
                 </TextBlock>
             </DockPanel>
         </Button>
-        <Button x:Name="agendasButton" HorizontalAlignment="Left" VerticalAlignment="Top" Height="130" Width="265" Click="Button_Click" FontSize="35" Margin="0,390,0,0" Background="White">
-            <DockPanel>
-                <Image Source="resources/img/rep.png" Width="50" Margin="0, 0, 20, 0"/>
-                <TextBlock>
-                    Agendas
-                </TextBlock>
-            </DockPanel>
-        </Button>
+        <DataGrid x:Name="DataArticulos" Margin="62,119,62,19"  AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Total Ventas" Binding="{Binding Total}" />
+                <DataGridTextColumn Header="Peds." Binding="{Binding Pedidos}" />
+                <DataGridTextColumn Header="Ofs." Binding="{Binding Ofertas}" />
+                <DataGridTextColumn Header="U.Ped." Binding="{Binding UPedido}" />
+                <DataGridTextColumn Header="U.Of." Binding="{Binding UOferta}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Ranking" HorizontalAlignment="Left" Margin="75,80,0,0" VerticalAlignment="Top" Height="57" Width="189" FontSize="24" FontWeight="Bold"/>
 
     </Grid>
 </UserControl>
